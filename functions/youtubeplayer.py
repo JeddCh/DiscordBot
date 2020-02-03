@@ -31,6 +31,7 @@ ffmpegopts = {
 ytdl = YoutubeDL(ytdlopts)
 
 
+
 class VoiceConnectionError(commands.CommandError):
     """Custom Exception class for connection errors."""
 
@@ -143,6 +144,10 @@ class MusicPlayer:
 
 
 class Music(commands.Cog):
+
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print("Youtube Function Ready.")
 
     __slots__ = ('bot', 'players')
 
